@@ -14,7 +14,7 @@ class Contacto extends CI_Controller
     {
         $data = array();
         $data['eventos'] = $this->_genera_eventos_sel();
-        $this->load->view('contacto/contacto_index', $data);
+        $this->load->view('contacto/contacto_enConstruccion', $data);
     }
 
     public function enviar_correo()

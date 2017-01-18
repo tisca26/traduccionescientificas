@@ -17,11 +17,11 @@
     padding: 3px 20px;
 }
 
-#lang-sel ul{
+ul.dropdown-menu{
     min-width: 90px;
 }
 
-#lang-sel li{
+ul.dropdown-menu li{
     width:95%;
 }
 

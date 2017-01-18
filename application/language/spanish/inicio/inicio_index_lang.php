@@ -12,7 +12,7 @@ $lang['inicio_slider_1_sub'] = 'Somos un equipo de traductores enfocados a la tr
                                 'y de investigación.';
 $lang['inicio_slider_2_titulo'] = 'Solicita una traducción gratuita';
 $lang['inicio_slider_2_sub'] = 'Solicitua una prueba de traducción sin costo';
-$lang['inicio_slider_2_boton'] = 'Solicita ahora';
+$lang['inicio_slider_2_boton'] = 'Solicitar ahora';
 
 $lang['inicio_mision_title_1'] = '¿Quiénes Somos?';
 $lang['inicio_mision_sub_1'] = 'Miembros de ATA <small>American Translators Association</small>';
@@ -44,8 +44,12 @@ $lang['inicio_servicios_10'] = 'Manuales de laboratorio';
 $lang['inicio_otros'] = 'Entre otros...';
 $lang['inicio_mas'] = 'Ver más...';
 
+$lang['inicio_prueba_promo'] = 'Solicita una traducción de prueba sin costo <strong>Solicitar ahora</strong>';
 
-
-
+$lang['inicio_extra_title'] = 'Traducciones Científicas';
+$lang['inicio_extra_cont'] = 'Para el equipo de <strong>Traducciones Científicas</strong> será un placer '.
+                                    'poder colaborar y contribuir con el desarrollo y éxito de sus proyectos '.
+                                    'lingüisticos, esperando poder servirle, quedamos a sus ordenes para cualquier '.
+                                    'duda o comentario.';
 
 ?>

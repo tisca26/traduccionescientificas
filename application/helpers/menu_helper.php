@@ -10,8 +10,8 @@ if (!function_exists('menu_lang_sel')) {
         $actual_lang = lang_segment();
         $result = '<div id="lang-sel" class="btn-group nomargin pull-right visible-lg visible-md">';
         $result .= '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">';
-        $result .= '<img src="' . cdn_assets() . 'assets/images/icons/flags/' . $actual_lang .'.png" alt="' . $langs[$actual_lang] . '"></a>';
-        $result .= ' <span class="caret"></span></button><ul class="dropdown-menu dropdown-menu-right" role="menu">';
+        $result .= '<img src="' . cdn_assets() . 'assets/images/icons/flags/' . $actual_lang .'.png" alt="' . $langs[$actual_lang] . '">';
+        $result .= '&nbsp;&nbsp;<span class="caret"></span></button><ul class="dropdown-menu dropdown-menu-right" role="menu">';
 
         foreach ($langs as $key => $lang){
             if ($key != $actual_lang){
@@ -31,10 +31,10 @@ if (!function_exists('footer_lang_sel')) {
         $langs = $CI->config->item('lang_uri_abbr');
 
         $actual_lang = lang_segment();
-        $result = '<div class="dropup btn-group nomargin" data-class-xs="pull-right" data-class-xss="pull-right">';
+        $result = '<div class="dropup btn-group nomargin">';
         $result .= '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">';
-        $result .= '<img src="' . cdn_assets() . 'assets/images/icons/flags/' . $actual_lang .'.png" alt="' . $langs[$actual_lang] . '"></a>';
-        $result .= ' <span class="caret"></span></button><ul class="dropdown-menu dropdown-menu-right" role="menu">';
+        $result .= '<img src="' . cdn_assets() . 'assets/images/icons/flags/' . $actual_lang .'.png" alt="' . $langs[$actual_lang] . '">';
+        $result .= '&nbsp;&nbsp;<span class="caret"></span></button><ul class="dropdown-menu dropdown-menu-right" role="menu">';
 
         foreach ($langs as $key => $lang){
             if ($key != $actual_lang){

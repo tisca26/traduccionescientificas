@@ -86,7 +86,7 @@
         ============================================= -->
         <section id="content">
 
-            <div class="content-wrap">
+            <div class="content-wrap nobottompadding">
                 <div class="container clearfix bottommargin">
 
                     <div class="col_one_third nobottommargin" id="uno">
@@ -136,31 +136,31 @@
 
                             <div class="col-md-4 col-sm-6">
 
-                                <div class="feature-box fbox-small fbox-plain fbox-right fbox-light topmargin" data-animate="fadeIn">
+                                <div class="feature-box fbox-small fbox-plain fbox-right fbox-light topmargin" data-animate="fadeIn" data-delay="0">
                                     <div class="fbox-icon">
                                         <i class="icon-lab"></i>
                                     </div>
                                     <h3><?php echo trans_line('inicio_servicios_1');?></h3>
                                 </div>
-                                <div class="feature-box fbox-small fbox-plain fbox-right fbox-light topmargin" data-animate="fadeIn">
+                                <div class="feature-box fbox-small fbox-plain fbox-right fbox-light topmargin" data-animate="fadeIn" data-delay="200">
                                     <div class="fbox-icon">
                                         <i class="icon-atom"></i>
                                     </div>
                                     <h3><?php echo trans_line('inicio_servicios_3');?></h3>
                                 </div>
-                                <div class="feature-box fbox-small fbox-plain fbox-right fbox-light topmargin" data-animate="fadeIn">
+                                <div class="feature-box fbox-small fbox-plain fbox-right fbox-light topmargin" data-animate="fadeIn" data-delay="400">
                                     <div class="fbox-icon">
                                         <i class="icon-measure"></i>
                                     </div>
                                     <h3><?php echo trans_line('inicio_servicios_4');?></h3>
                                 </div>
-                                <div class="feature-box fbox-small fbox-plain fbox-right fbox-light topmargin" data-animate="fadeIn">
+                                <div class="feature-box fbox-small fbox-plain fbox-right fbox-light topmargin" data-animate="fadeIn" data-delay="600">
                                     <div class="fbox-icon">
                                         <i class="icon-book"></i>
                                     </div>
                                     <h3><?php echo trans_line('inicio_servicios_7');?></h3>
                                 </div>
-                                <div class="feature-box fbox-small fbox-plain fbox-right fbox-light topmargin" data-animate="fadeIn">
+                                <div class="feature-box fbox-small fbox-plain fbox-right fbox-light topmargin" data-animate="fadeIn" data-delay="800">
                                     <div class="fbox-icon">
                                         <i class="icon-files"></i>
                                     </div>
@@ -174,31 +174,31 @@
 
                             <div class="col-md-4 col-sm-6">
 
-                                <div class="feature-box fbox-small fbox-plain fbox-light topmargin" data-animate="fadeIn">
+                                <div class="feature-box fbox-small fbox-plain fbox-light topmargin" data-animate="fadeIn" data-delay="0">
                                     <div class="fbox-icon">
                                         <i class="icon-lab2"></i>
                                     </div>
                                     <h3><?php echo trans_line('inicio_servicios_2');?></h3>
                                 </div>
-                                <div class="feature-box fbox-small fbox-plain fbox-light topmargin" data-animate="fadeIn">
+                                <div class="feature-box fbox-small fbox-plain fbox-light topmargin" data-animate="fadeIn" data-delay="200">
                                     <div class="fbox-icon">
                                         <i class="icon-clipboard"></i>
                                     </div>
                                     <h3><?php echo trans_line('inicio_servicios_5');?></h3>
                                 </div>
-                                <div class="feature-box fbox-small fbox-plain fbox-light topmargin" data-animate="fadeIn">
+                                <div class="feature-box fbox-small fbox-plain fbox-light topmargin" data-animate="fadeIn" data-delay="400">
                                     <div class="fbox-icon">
                                         <i class="icon-health"></i>
                                     </div>
                                     <h3><?php echo trans_line('inicio_servicios_6');?></h3>
                                 </div>
-                                <div class="feature-box fbox-small fbox-plain fbox-light topmargin" data-animate="fadeIn">
+                                <div class="feature-box fbox-small fbox-plain fbox-light topmargin" data-animate="fadeIn" data-delay="600">
                                     <div class="fbox-icon">
                                         <i class="icon-user-md"></i>
                                     </div>
                                     <h3><?php echo trans_line('inicio_servicios_8');?></h3>
                                 </div>
-                                <div class="feature-box fbox-small fbox-plain fbox-light topmargin" data-animate="fadeIn">
+                                <div class="feature-box fbox-small fbox-plain fbox-light topmargin" data-animate="fadeIn" data-delay="800">
                                     <div class="fbox-icon">
                                         <i class="icon-book3"></i>
                                     </div>
@@ -211,11 +211,29 @@
                     <a href="#" data-scrollto="#tres" class="one-page-arrow color" style="bottom:10px"><i class="icon-angle-down infinite animated fadeInDown"></i></a>
                 </section>
                 <a href="<?php echo base_url_lang();?>prueba" class="button button-3d button-full center tright t300 font-primary" style="font-size:26px;">
-                    <div class="container clearfix">
-                        Solicita una traducción de prueba sin costo <strong>Solicitar ahora</strong>
+                    <div class="container clearfix" id="tres">
+                        <?php echo trans_line('inicio_prueba_promo');?>
                         <i class="icon-angle-right" style="top:3px"></i>
                     </div>
                 </a>
+                <section class="section nomargin nobg">
+                    <div class="container clearfix">
+                        <div class="row clearfix">
+                            <div class="col-lg-5">
+                                <div class="heading-block">
+                                    <h2><?php echo trans_line('inicio_extra_title');?></h2>
+                                </div>
+                                <p class="lead"><?php echo trans_line('inicio_extra_cont');?></p>
+                            </div>
+                            <div class="col-lg-7">
+                                <div style="position: relative; margin-bottom: -60px;" class="ohidden" data-height-lg="426" data-height-md="567" data-height-sm="470" data-height-xs="287" data-height-xxs="183">
+                                    <img src="<?php echo cdn_assets();?>assets/images/servicios/libro.png" style="position: absolute; top: 0; left: 0;" data-animate="fadeIn" data-delay="100" alt="Book">
+                                    <img src="<?php echo cdn_assets();?>assets/images/servicios/moleculas.png" style="position: absolute; top: 0; left: 0;" data-animate="fadeInUp  " data-delay="400" alt="Molecula">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </section><!-- #content end -->
 
@@ -233,34 +251,9 @@
     ============================================= -->
     <script type="text/javascript" src="<?php echo cdn_assets(); ?>assets/js/jquery.js"></script>
     <script type="text/javascript" src="<?php echo cdn_assets(); ?>assets/js/plugins.js"></script>
-    <script type="text/javascript" src="<?php echo cdn_assets(); ?>assets/js/jquery.nivo.js"></script>
 
     <!-- Footer Scripts
     ============================================= -->
     <script type="text/javascript" src="<?php echo cdn_assets(); ?>assets/js/functions.js"></script>
-    <script type="text/javascript">
-
-        jQuery(document).ready(function($) {
-
-            $('.nivoSlider').nivoSlider({
-                effect: 'random',
-                slices: 15,
-                boxCols: 12,
-                boxRows: 6,
-                animSpeed: 500,
-                pauseTime: 5000,
-                directionNav: true,
-                controlNav: true,
-                pauseOnHover: false,
-                prevText: '<i class="icon-angle-left"></i>',
-                nextText: '<i class="icon-angle-right"></i>',
-                afterLoad: function(){
-                    $('#slider').find('.nivo-caption').addClass('slider-caption-bg');
-                }
-            });
-
-        });
-
-    </script>
 </body>
 </html>
