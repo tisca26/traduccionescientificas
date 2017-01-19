@@ -9,7 +9,8 @@
     <meta name="keywords" content="<?php echo trans_line('metatag_keywords');?>">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <link rel="icon" href="<?php echo cdn_assets();?>assets/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo cdn_assets();?>assets/images/favicon-180x180.png" type="image/png">
+    <link rel="icon" href="<?php echo cdn_assets();?>assets/images/favicon-192x192.png" type="image/png" sizes="192x192">
     <link rel="shortcut icon" href="<?php echo cdn_assets();?>assets/images/favicon.ico" type="image/x-icon">
 
     <!-- Stylesheets
@@ -21,7 +22,6 @@
     <link rel="stylesheet" href="<?php echo cdn_assets(); ?>assets/css/dark.css" type="text/css"/>
     <link rel="stylesheet" href="<?php echo cdn_assets(); ?>assets/css/font-icons.css" type="text/css"/>
     <link rel="stylesheet" href="<?php echo cdn_assets(); ?>assets/css/animate.css" type="text/css"/>
-    <link rel="stylesheet" href="<?php echo cdn_assets(); ?>assets/css/magnific-popup.css" type="text/css"/>
     <link rel="stylesheet" href="<?php echo cdn_assets(); ?>assets/css/responsive.css" type="text/css"/>
     <link rel="stylesheet" href="<?php echo cdn_assets(); ?>assets/css/custom.css" type="text/css"/>
     <link rel="stylesheet" href="<?php echo cdn_assets(); ?>assets/css/colors.php" type="text/css"/>
@@ -43,7 +43,7 @@
         <!-- /Menu generado -->
 
         <!-- Slider Canvas -->
-        <section id="slider" class="slider-parallax swiper_wrapper full-screen clearfix" data-effect="fade" data-autoplay="7000" data-loop="true" data-speed="1500" data-progress="true">
+        <section id="slider" class="slider-parallax swiper_wrapper full-screen clearfix" data-effect="fade" data-autoplay="8000" data-loop="true" data-speed="1500" data-progress="true">
 
             <div class="swiper-container swiper-parent">
                 <div class="swiper-wrapper">

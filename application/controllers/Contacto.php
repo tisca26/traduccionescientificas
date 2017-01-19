@@ -13,8 +13,7 @@ class Contacto extends CI_Controller
     public function index()
     {
         $data = array();
-        $data['eventos'] = $this->_genera_eventos_sel();
-        $this->load->view('contacto/contacto_enConstruccion', $data);
+        $this->load->view('contacto/contacto_index', $data);
     }
 
     public function enviar_correo()
@@ -22,10 +21,7 @@ class Contacto extends CI_Controller
         $this->form_validation->set_rules('nombre', 'Nombre', 'required|trim|min_length[3]');
         $this->form_validation->set_rules('correo', 'Correo Electrónico', 'required|trim|valid_email');
         $this->form_validation->set_rules('telefono', 'Teléfono', 'required|trim|min_length[7]|numeric');
-        $this->form_validation->set_rules('mensaje', 'Mensaje', 'required|trim|min_length[3]');
-        $this->form_validation->set_rules('evento', 'Evento', 'required');
-        $this->form_validation->set_rules('fecha', 'Fecha', 'required');
-        $this->form_validation->set_rules('hora', 'Hora', 'required');
+        $this->form_validation->set_rules('mensaje', 'Mensaje', 'required|trim|min_length[10]|max_length[400]');
         if ($this->form_validation->run() == FALSE) {
             $this->index();
         } else {
@@ -137,17 +133,5 @@ class Contacto extends CI_Controller
             log_message('ERROR', '--------- Error envio correo ---------' . $mail->ErrorInfo);
             return FALSE;
         }
-    }
-
-    private function _genera_eventos_sel()
-    {
-        $data['XV Años'] = 'XV Años';
-        $data['Boda'] = 'Boda';
-        $data['Graduación'] = 'Graduación';
-        $data['Aniversario'] = 'Aniversario';
-        $data['Televisión'] = 'Televisión';
-        $data['Película'] = 'Película';
-        $data['Otro'] = 'Otro';
-        return $data;
     }
 }

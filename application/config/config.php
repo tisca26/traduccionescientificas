@@ -378,9 +378,9 @@ $config['encryption_key'] = 'Tr4NsSc1eNc3';
 |
 */
 $config['sess_driver'] = 'files';
-$config['sess_cookie_name'] = 'transsience-cookie';
+$config['sess_cookie_name'] = 'transscience-cookie';
 $config['sess_expiration'] = 7200;
-$config['sess_save_path'] = APPPATH . 'sessions-transsience';
+$config['sess_save_path'] = APPPATH . 'sessions-transscience';
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 3600;
 $config['sess_regenerate_destroy'] = FALSE;
@@ -400,7 +400,7 @@ $config['sess_regenerate_destroy'] = FALSE;
 |       'cookie_httponly') will also affect sessions.
 |
 */
-$config['cookie_prefix']	= 'transsience_';
+$config['cookie_prefix']	= 'transscience_';
 $config['cookie_domain']	= '';
 $config['cookie_path']		= '/';
 $config['cookie_secure']	= FALSE;

@@ -1,10 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-<div class="promo promo-border promo-full nomargin">
-    <div class="container clearfix">
-        <h3>Llamanos <span><?php echo TEL_VENTAS;?></span> o Escribenos <span><?php echo MAIL_VENTAS;?></span></h3>
-        <span>Contamos con el mejor personal listo para atenderle</span>
-        <a href="#" class="button button-xlarge button-rounded hidden-lg">Contactar</a>
+<div class="promo promo-border promo-full">
+    <div class="container clearfix" style="position:relative">
+        <h3><?php echo trans_line('footer_llamanos');?> <span><?php echo TEL_VENTAS;?></span> , <span><?php echo CEL_VENTAS;?></span><br/><?php echo trans_line('footer_escribenos');?> <span><?php echo MAIL_VENTAS;?></span></h3>
+        <span><?php echo trans_line('footer_promo_sub');?></span>
+        <a href="#" class="button button-xlarge button-rounded"><?php echo trans_line('footer_contacto');?></a>
     </div>
 </div>
 
@@ -14,14 +14,14 @@
 
     <!-- Copyrights
     ============================================= -->
-    <div id="copyrights">
+    <div id="copyrights" style="padding-bottom: 80px;">
 
         <div class="container clearfix">
 
             <div class="container clearfix">
 
                 <div class="col_half bottommargin-sm">
-                    Copyright © 2017 Todos los derechos reservados por <strong><?php echo ICOGNITIS_SACV;?></strong><br>
+                    <?php echo trans_line('footer_copyright');?> <strong><?php echo ICOGNITIS_SACV;?></strong><br>
                     <div class="copyright-links"><a href="<?php echo ICOGNITIS_URL;?>">Página del desarrollador</a></div>
                 </div>
                 <br class="visible-xs visible-sm"/>
