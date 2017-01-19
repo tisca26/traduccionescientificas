@@ -1,4 +1,3 @@
-.idea/*
-application/sessions-transscience/*
-application/sessions-transsience/*
-application/logs/*
+.idea/**
+application/sessions-transscience/**
+application/logs/**
