@@ -102,9 +102,10 @@ defined('TWITTER')              OR define('TWITTER', 'https://twitter.com/@GalnM
  * Elementos Renta Antiguo
  */
 defined('NOMBRE')                   OR define('NOMBRE','TransScience');
+defined('NOMBRETC')                 OR define('NOMBRETC','Traducciones Cientificas');
 defined('NOMBRESA')                 OR define('NOMBRESA',NOMBRE.' S.A. de C.V.');
 defined('TEL_VENTAS')               OR define('TEL_VENTAS', '+52 55-5115-9710');
-defined('CEL_VENTAS')               OR define('CEL_VENTAS', '+52 1 55-1477- 0703');
+defined('CEL_VENTAS')               OR define('CEL_VENTAS', '+52 1 55-1477-0703');
 defined('MAIL_VENTAS')              OR define('MAIL_VENTAS', 'contacto@traduccionescientificas.com.mx');
 
 /*

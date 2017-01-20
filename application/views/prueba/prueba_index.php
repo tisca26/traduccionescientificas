@@ -95,11 +95,11 @@
                                 <small>*</small>
                             </label>
                             <textarea class="required sm-form-control" id="mensaje"
-                                      name="mensaje" rows="7" cols="30" style="resize: vertical; max-height:400px;" value="<?php echo set_value('mensaje'); ?>" <?php echo ($prueba=='ok')?'disabled':'';?>></textarea>
+                                      name="mensaje" rows="7" cols="30" style="resize: vertical; max-height:400px;" <?php echo ($prueba=='ok')?'disabled':'';?>><?php echo set_value('mensaje'); ?></textarea>
                         </div>
 
                         <div class="col_full">
-                            <button class="button button-3d nomargin button <?php echo ($prueba=='ok')?'button-amber':'';?>" type="submit" id="btn_submit"
+                            <button class="button button-3d nomargin button <?php echo ($prueba=='ok')?'button-red':'';?>" type="submit" id="btn_submit"
                                     name="contactform-submit" value="submit" <?php echo ($prueba=='ok')?'disabled':'';?>><?php echo trans_line('prueba_form_enviar');?>
                             </button>
                         </div>
@@ -183,7 +183,7 @@
                 },
                 mensaje:{
                     required: true,
-                    maxlength: 400,
+                    maxlength: 600,
                     minlength: 10
                 }
             },

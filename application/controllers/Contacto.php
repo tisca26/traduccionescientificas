@@ -12,6 +12,7 @@ class Contacto extends CI_Controller
 
     public function index()
     {
+        $this->cargar_idioma->carga_lang('contacto/contacto_index');
         $data = array();
         $this->load->view('contacto/contacto_index', $data);
     }
@@ -21,7 +22,7 @@ class Contacto extends CI_Controller
         $this->form_validation->set_rules('nombre', 'Nombre', 'required|trim|min_length[3]');
         $this->form_validation->set_rules('correo', 'Correo Electrónico', 'required|trim|valid_email');
         $this->form_validation->set_rules('telefono', 'Teléfono', 'required|trim|min_length[7]|numeric');
-        $this->form_validation->set_rules('mensaje', 'Mensaje', 'required|trim|min_length[10]|max_length[400]');
+        $this->form_validation->set_rules('mensaje', 'Mensaje', 'required|trim|min_length[10]|max_length[600]');
         if ($this->form_validation->run() == FALSE) {
             $this->index();
         } else {
@@ -29,14 +30,13 @@ class Contacto extends CI_Controller
             $receptor_nombre = $this->input->post('nombre');
             $receptor_telefono = $this->input->post('telefono');
             $receptor_mensaje = $this->input->post('mensaje');
-            $receptor_evento = $this->input->post('evento');
-            $receptor_fecha = $this->input->post('fecha');
-            $receptor_hora = $this->input->post('hora');
-            $this->_enviar_correo_a_prospecto($receptor_nombre, $receptor_mail);
-            $this->_enviar_correo_a_ventas($receptor_nombre, $receptor_mail, $receptor_telefono, $receptor_evento, $receptor_mensaje, $receptor_fecha, $receptor_hora);
-
-            set_bootstrap_alert('El correo ha sido enviado exitosamente.', BOOTSTRAP_ALERT_SUCCESS);
-            redirect('contacto');
+            if($this->_enviar_correo_a_ventas($receptor_nombre, $receptor_mail, $receptor_telefono, $receptor_mensaje)){
+                set_bootstrap_alert(trans_line('prueba_exito'), BOOTSTRAP_ALERT_SUCCESS);
+                $this->index();
+            }else{
+                set_bootstrap_alert(trans_line('prueba_error'), BOOTSTRAP_ALERT_DANGER);
+                $this->index();
+            }
         }
     }
 
@@ -57,24 +57,21 @@ class Contacto extends CI_Controller
         $mail->SMTPKeepAlive = true; // SMTP connection will not close after each email sent, reduces SMTP overhead
         $mail->SMTPAuth = true;
         $mail->SMTPSecure = 'ssl';
-        $mail->Username = 'contacto@renta-antiguo.com';                 // SMTP username
+        $mail->Username = 'contacto@traduccionescientificas.com.mx'; // SMTP username
         $mail->Password = 'Contacto123!';
         $mail->Port = 465;
-        $mail->AltBody = 'Para mostrar el mensaje correctamente, por favor, use un visor de email compatible con HTML, ¡gracias!';
+        $mail->AltBody = 'Para mostrar el mensaje correctamente, por favor, use un visor de email compatible con HTML, ¡Gracias!';
         $mail->CharSet = 'UTF-8';
         $mail->ContentType = 'text/html; charset=utf-8\r\n';
         $mail->isHTML(true);
-        $mail->setFrom('contacto@renta-antiguo.com', RA);
-        $mail->Subject = "Petición de Contacto";
-        $mail->addAddress('contacto@renta-antiguo.com', RA);
+        $mail->setFrom('contacto@traduccionescientificas.com.mx', 'Solicitud - '.NOMBRETC);
+        $mail->Subject = "Solicitud de Traducción";
+        $mail->addAddress('contacto@traduccionescientificas.com.mx', NOMBRE.' - '.NOMBRETC);
 
         $data['receptor_nombre'] = $receptor_nombre;
         $data['receptor_mail'] = $receptor_mail;
         $data['receptor_telefono'] = $receptor_telefono;
-        $data['receptor_evento'] = $receptor_evento;
         $data['receptor_mensaje'] = $receptor_mensaje;
-        $data['receptor_fecha'] = $receptor_fecha;
-        $data['receptor_hora'] = $receptor_hora;
         $cuerpo_mensaje = $this->load->view('contacto/contacto_email_ventas', $data, TRUE);
 
         $mail->msgHTML($cuerpo_mensaje);
@@ -83,53 +80,6 @@ class Contacto extends CI_Controller
             $mail->clearReplyTos();
             return TRUE;
         } else {
-            $mail->clearAllRecipients();
-            $mail->clearReplyTos();
-            log_message('ERROR', '--------- Error envio correo ---------' . $mail->ErrorInfo);
-            return FALSE;
-        }
-    }
-
-    private function _enviar_correo_a_prospecto($receptor_nombre = '', $receptor_mail = '')
-    {
-        $mail = new PHPMailer();
-        $mail->SMTPOptions = array(
-            'ssl' => array(
-                'verify_peer' => false,
-                'verify_peer_name' => false,
-                'allow_self_signed' => true
-            )
-        );
-        $mail->isSMTP();
-        $mail->Host = 'kin.hosting-mexico.net';
-        $mail->SMTPAuth = true;
-        $mail->SMTPDebug = 0;
-        $mail->SMTPKeepAlive = true; // SMTP connection will not close after each email sent, reduces SMTP overhead
-        $mail->SMTPAuth = true;
-        $mail->SMTPSecure = 'ssl';
-        $mail->Username = 'contacto@renta-antiguo.com';                 // SMTP username
-        $mail->Password = 'Contacto123!';
-        $mail->Port = 465;
-        $mail->AltBody = 'Para mostrar el mensaje correctamente, por favor, use un visor de email compatible con HTML, ¡gracias!';
-        $mail->CharSet = 'UTF-8';
-        $mail->ContentType = 'text/html; charset=utf-8\r\n';
-        $mail->isHTML(true);
-        $mail->setFrom('contacto@renta-antiguo.com', RA);
-        $mail->addReplyTo('contacto@renta-antiguo.com', RA);
-        $mail->Subject = "Su mensaje fue recibido";
-        $mail->addAddress($receptor_mail, $receptor_nombre);
-
-        $data['receptor_nombre'] = $receptor_nombre;
-        $cuerpo_mensaje = $this->load->view('contacto/contacto_email_prospecto', $data, TRUE);
-
-        $mail->msgHTML($cuerpo_mensaje);
-        if ($mail->send()) {
-            $mail->clearAllRecipients();
-            $mail->clearReplyTos();
-            return TRUE;
-        } else {
-            $mail->clearAllRecipients();
-            $mail->clearReplyTos();
             log_message('ERROR', '--------- Error envio correo ---------' . $mail->ErrorInfo);
             return FALSE;
         }

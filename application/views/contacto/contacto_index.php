@@ -55,24 +55,25 @@
             <section class="section nomargin">
                 <div class="container clearfix">
 
-                <div class="contact-form-result">
-                    <?php echo get_bootstrap_alert(); ?>
-                    <?php echo validation_errors('<div class="alert alert-danger alert-dismissable">', '</div>'); ?>
-                </div>
+                    <div class="contact-form-result">
+                        <?php echo get_bootstrap_alert(); ?>
+                        <?php echo validation_errors('<div class="alert alert-danger alert-dismissable">', '</div>'); ?>
+                    </div>
 
-                <div>
-                    <?php echo form_open('contacto/enviar_correo', array('id' => 'current_form', 'class' => '')); ?>
+                    <div>
+                        <?php echo form_open('contacto/enviar_correo', array('id' => 'current_form', 'class' => '')); ?>
                         <div class="form-process"></div>
 
                         <div class="col_one_third">
-                            <label for="contactform-name">Nombre
+                            <label for="contactform-name"><?php echo trans_line('contacto_form_nombre');?>
                                 <small>*</small>
                             </label>
-                            <?php echo form_input('nombre', set_value('nombre'), 'id="nombre" class="sm-form-control required"'); ?>
+                            <input type="text" id="nombre" name="nombre" value="<?php echo set_value('nombre') ?>"
+                                   class="required sm-form-control"/>
                         </div>
 
                         <div class="col_one_third">
-                            <label for="contactform-email">Correo electrónico
+                            <label for="contactform-email"><?php echo trans_line('contacto_form_mail');?>
                                 <small>*</small>
                             </label>
                             <input type="email" id="correo" name="correo" value="<?php echo set_value('correo') ?>"
@@ -80,7 +81,7 @@
                         </div>
 
                         <div class="col_one_third col_last">
-                            <label for="contactform-phone">Teléfono
+                            <label for="contactform-phone"><?php echo trans_line('contacto_form_telefono');?>
                                 <small>*</small>
                             </label>
                             <input type="text" id="telefono" name="telefono" value="<?php echo set_value('telefono') ?>"
@@ -90,22 +91,22 @@
                         <div class="clear"></div>
 
                         <div class="col_full">
-                            <label for="contactform-message">Texto a traducir (máximo 400 caractéres)
+                            <label for="contactform-message"><?php echo trans_line('contacto_form_mensaje');?>
                                 <small>*</small>
                             </label>
                             <textarea class="required sm-form-control" id="mensaje"
-                                      name="mensaje" rows="7" cols="30" style="resize: vertical; max-height:400px;"></textarea>
+                                      name="mensaje" rows="7" cols="30" style="resize: vertical; max-height:400px;"><?php echo set_value('mensaje'); ?></textarea>
                         </div>
 
                         <div class="col_full">
-                            <button class="button button-3d nomargin" type="submit" id="btn_submit"
-                                    name="contactform-submit" value="submit">Enviar
+                            <button class="button button-3d nomargin button" type="submit" id="btn_submit"
+                                    name="contactform-submit" value="submit"><?php echo trans_line('contacto_form_enviar');?>
                             </button>
                         </div>
 
-                    <?php echo form_close(); ?>
+                        <?php echo form_close(); ?>
+                    </div>
                 </div>
-            </div>
             </section>
         </div>
 
@@ -142,42 +143,48 @@
             ignore: "", // validate all fields including form hidden input
             messages: {
                 correo:{
-                    required: "Este campo es requerido",
-                    email: "Este campo debe ser un correo electrónico válido",
-                    minlength: jQuery.validator.format("Este campo debe contener un mínimo de {0} caracteres")
+                    required: "<?php echo trans_line('required');?>",
+                    email: "<?php echo trans_line('email');?>",
+                    maxlength: jQuery.validator.format("<?php echo trans_line('maxlength');?>")
                 },
                 nombre: {
-                    required: "Este campo es requerido",
-                    minlength: jQuery.validator.format("Este campo debe contener un mínimo de {0} caracteres")
+                    required: "<?php echo trans_line('required');?>",
+                    minlength: jQuery.validator.format("<?php echo trans_line('minlength');?>"),
+                    maxlength: jQuery.validator.format("<?php echo trans_line('maxlength');?>")
                 },
                 telefono:{
-                    required: "Este campo es requerido",
+                    required: "<?php echo trans_line('required');?>",
                     digits: "Este campo debe contener solo números del 0-9",
-                    minlength: jQuery.validator.format("Este campo debe contener un mínimo de {0} caracteres")
+                    minlength: jQuery.validator.format("<?php echo trans_line('minlength');?>"),
+                    maxlength: jQuery.validator.format("<?php echo trans_line('maxlength');?>")
                 },
                 mensaje:{
-                    required: "Este campo es requerido",
-                    minlength: jQuery.validator.format("Este campo debe contener un mínimo de {0} caracteres")
+                    required: "<?php echo trans_line('required');?>",
+                    minlength: jQuery.validator.format("<?php echo trans_line('minlength');?>"),
+                    maxlength: jQuery.validator.format("<?php echo trans_line('maxlength');?>")
                 }
             },
             rules: {
                 nombre: {
                     minlength: 3,
+                    maxlength: 40,
                     required: true
                 },
                 correo:{
-                    minlength: 3,
                     email: true,
+                    maxlength: 40,
                     required: true
                 },
                 telefono:{
                     minlength: 8,
+                    maxlength: 15,
                     digits: true,
                     required: true
                 },
                 mensaje:{
                     required: true,
-                    minlength: 3
+                    maxlength: 600,
+                    minlength: 10
                 }
             },
 
@@ -211,7 +218,7 @@
             },
 
             submitHandler: function (form) {
-                $('#btn_submit').html("<?php echo trans_line('contacto_enviando');?>");
+                $('#btn_submit').html("<?php echo trans_line('contacto_form_enviando');?>");
                 $('#btn_submit').prop('disabled', true);
                 form.submit();
             }

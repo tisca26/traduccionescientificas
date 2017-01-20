@@ -8,7 +8,6 @@ class Prueba extends CI_Controller
         parent::__construct();
         $this->load->library('form_validation');
         set_attr_session('menu_root', 'prueba');
-        set_attr_session('prueba_solicitada','ok');
     }
 
     public function index()
@@ -16,7 +15,7 @@ class Prueba extends CI_Controller
         $data = array('prueba'=>get_attr_session('prueba_solicitada'));
         $this->cargar_idioma->carga_lang('prueba/prueba_index');
         if(get_attr_session('prueba_solicitada')=='ok') {
-            set_bootstrap_alert(trans_line('prueba_realizada'), BOOTSTRAP_ALERT_WARNING);
+            set_bootstrap_alert(trans_line('prueba_realizada'), BOOTSTRAP_ALERT_DANGER);
         }
         $this->load->view('prueba/prueba_index', $data);
     }
@@ -27,7 +26,7 @@ class Prueba extends CI_Controller
         $this->form_validation->set_rules('nombre', 'Nombre', 'required|trim|min_length[3]|max_length[40]');
         $this->form_validation->set_rules('correo', 'Correo Electrónico', 'required|trim|valid_email|max_length[40]');
         $this->form_validation->set_rules('telefono', 'Teléfono', 'required|trim|min_length[8]|numeric|max_length[15]');
-        $this->form_validation->set_rules('mensaje', 'Mensaje', 'required|trim|min_length[3]|max_length[400]');
+        $this->form_validation->set_rules('mensaje', 'Mensaje', 'required|trim|min_length[3]|max_length[600]');
         if ($this->form_validation->run() == FALSE) {
             $this->index();
         } else {
@@ -39,10 +38,14 @@ class Prueba extends CI_Controller
             $receptor_nombre = $this->input->post('nombre');
             $receptor_telefono = $this->input->post('telefono');
             $receptor_mensaje = $this->input->post('mensaje');
-            $this->_enviar_correo_a_ventas($receptor_nombre, $receptor_mail, $receptor_telefono, $receptor_mensaje);
-            set_bootstrap_alert(trans_line('prueba_exito'), BOOTSTRAP_ALERT_SUCCESS);
-            set_attr_session('prueba_solicitada','ok');
-            redirect('prueba');
+            if($this->_enviar_correo_a_ventas($receptor_nombre, $receptor_mail, $receptor_telefono, $receptor_mensaje)){
+                set_bootstrap_alert(trans_line('prueba_exito'), BOOTSTRAP_ALERT_SUCCESS);
+                set_attr_session('prueba_solicitada','ok');
+                redirect('contacto');
+            }else{
+                set_bootstrap_alert(trans_line('prueba_error'), BOOTSTRAP_ALERT_DANGER);
+               $this->index();
+            }
         }
     }
 
@@ -71,9 +74,9 @@ class Prueba extends CI_Controller
         $mail->CharSet = 'UTF-8';
         $mail->ContentType = 'text/html; charset=utf-8\r\n';
         $mail->isHTML(true);
-        $mail->setFrom('contacto@traduccionescientificas.com.mx', NOMBRE);
+        $mail->setFrom('contacto@traduccionescientificas.com.mx', 'Solicitud - '.NOMBRETC);
         $mail->Subject = "Solicitud de Traducción";
-        $mail->addAddress('contacto@traduccionescientificas.com.mx', NOMBRE);
+        $mail->addAddress('contacto@traduccionescientificas.com.mx', NOMBRE.' - '.NOMBRETC);
 
         $data['receptor_nombre'] = $receptor_nombre;
         $data['receptor_mail'] = $receptor_mail;
@@ -87,8 +90,6 @@ class Prueba extends CI_Controller
             $mail->clearReplyTos();
             return TRUE;
         } else {
-            $mail->clearAllRecipients();
-            $mail->clearReplyTos();
             log_message('ERROR', '--------- Error envio correo ---------' . $mail->ErrorInfo);
             return FALSE;
         }

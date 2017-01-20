@@ -139,7 +139,6 @@ var SEMICOLON = SEMICOLON || {};
 			SEMICOLON.initialize.imagePreload( '.portfolio-item:not(:has(.fslider)) img' );
 			SEMICOLON.initialize.stickyElements();
 			SEMICOLON.initialize.goToTop();
-			SEMICOLON.initialize.lazyLoad();
 			SEMICOLON.initialize.fullScreen();
 			SEMICOLON.initialize.verticalMiddle();
 			SEMICOLON.initialize.lightbox();
@@ -723,28 +722,6 @@ var SEMICOLON = SEMICOLON || {};
 				overlayParentElement : 'body',
 				timeOut: loaderTimeOut
 			});
-		},
-
-		lazyLoad: function() {
-			var lazyLoadEl = $('[data-lazyload]');
-
-			if( !$().appear ) {
-				console.log('lazyLoad: Appear not Defined.');
-				return true;
-			}
-
-			if( lazyLoadEl.length > 0 ) {
-				lazyLoadEl.each( function(){
-					var element = $(this),
-						elementImg = element.attr( 'data-lazyload' );
-
-					element.attr( 'src', 'images/blank.svg' ).css({ 'background': 'url(images/preloader.gif) no-repeat center center #FFF' });
-
-					element.appear(function () {
-						element.css({ 'background': 'none' }).removeAttr( 'width' ).removeAttr( 'height' ).attr('src', elementImg);
-					},{accX: 0, accY: 120},'easeInCubic');
-				});
-			}
 		},
 
 		topScrollOffset: function() {

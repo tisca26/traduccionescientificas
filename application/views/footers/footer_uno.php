@@ -2,9 +2,11 @@
 
 <div class="promo promo-border promo-full">
     <div class="container clearfix" style="position:relative">
-        <h3><?php echo trans_line('footer_llamanos');?> <span><?php echo TEL_VENTAS;?></span> , <span><?php echo CEL_VENTAS;?></span><br/><?php echo trans_line('footer_escribenos');?> <span><?php echo MAIL_VENTAS;?></span></h3>
+        <h3 class="visible-lg visible-md"><?php echo trans_line('footer_llamanos');?> <span><?php echo TEL_VENTAS;?></span> , <span><?php echo CEL_VENTAS;?></span><br/><?php echo trans_line('footer_escribenos');?> <span><?php echo MAIL_VENTAS;?></span></h3>
+        <h4 class="visible-sm"><?php echo trans_line('footer_llamanos');?> <span><?php echo TEL_VENTAS;?></span> , <span><?php echo CEL_VENTAS;?></span><br/><?php echo trans_line('footer_escribenos');?> <span><?php echo MAIL_VENTAS;?></span></h4>
+        <h5 class="visible-xs"><?php echo trans_line('footer_llamanos');?><br/><span><?php echo TEL_VENTAS;?></span> , <span><?php echo CEL_VENTAS;?></span><br/><?php echo trans_line('footer_escribenos');?> <span><?php echo MAIL_VENTAS;?></span></h5>
         <span><?php echo trans_line('footer_promo_sub');?></span>
-        <a href="#" class="button button-xlarge button-rounded"><?php echo trans_line('footer_contacto');?></a>
+        <a href="<?php echo base_url_lang();?>contacto" class="button button-xlarge button-rounded"><?php echo trans_line('footer_contacto');?></a>
     </div>
 </div>
 
