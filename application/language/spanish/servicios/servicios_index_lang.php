@@ -3,7 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['language'] = 'es-MX';
 $lang['title_tag'] = NOMBRE.' - Servicios';
-$lang['metatag_desc'] = '';
+$lang['metatag_desc'] = 'Somos un equipo de traductores enfocados a la traducción, edición y '.
+                        'revisión de documentos especializados en las ciencias médicas, farmacéuticas '.
+                        'y de investigación.';
 $lang['metatag_keywords'] = '';
 
 $lang['servicios_title'] = 'Servicios';
@@ -12,7 +14,7 @@ $lang['servicios_feature_title_1'] = 'Investigación Científica';
 $lang['servicios_feature_sub_1'] = 'Libros de texto, Artículos científicos, Artículos de divulgación, entre otros.';
 $lang['servicios_feature_title_2'] = 'Investigación Clínica';
 $lang['servicios_feature_sub_2'] = 'Protocolos, Manuales de Investigador, Consentimientos Informados, '.
-                                    'Reportes de Seguridad, eficacia y toxicológicos; Documentación '.
+                                    'Reportes de Seguridad, Eficacia y Toxicológicos; Documentación '.
                                     'Regulatoria, Material de información para los pacientes, entre otros.';
 $lang['servicios_feature_title_3'] = 'Farmacéutica';
 $lang['servicios_feature_sub_3'] = 'Dossiers, Monografías y capítulos de Farmacopeas, Fichas Técnicas, '.

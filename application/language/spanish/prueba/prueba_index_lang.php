@@ -3,7 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['language'] = 'es-MX';
 $lang['title_tag'] = NOMBRE.' - Prueba';
-$lang['metatag_desc'] = '';
+$lang['metatag_desc'] = 'Somos un equipo de traductores enfocados a la traducción, edición y '.
+    'revisión de documentos especializados en las ciencias médicas, farmacéuticas '.
+    'y de investigación.';
 $lang['metatag_keywords'] = '';
 
 $lang['prueba_title'] = 'Traducción de prueba';

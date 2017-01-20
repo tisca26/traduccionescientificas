@@ -11,5 +11,7 @@ $lang['footer_breadcrumb_2'] = 'Servicios';
 $lang['footer_breadcrumb_3'] = 'Prueba';
 $lang['footer_breadcrumb_4'] = 'Contacto';
 
+$lang['footer_cambiar'] = 'Change the language: ';
+$lang['footer_desarrollador'] = 'Página del desarrollador';
 $lang['footer_copyright'] = 'Copyright © 2017 Todos los derechos reservados por ';
 $lang['footer_icognitis'] = 'Desarrollado por Icognitis S.A de C.V.';

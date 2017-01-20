@@ -24,7 +24,7 @@
 
                 <div class="col_half bottommargin-sm">
                     <?php echo trans_line('footer_copyright');?> <strong><?php echo ICOGNITIS_SACV;?></strong><br>
-                    <div class="copyright-links"><a href="<?php echo ICOGNITIS_URL;?>">Página del desarrollador</a></div>
+                    <div class="copyright-links"><a href="<?php echo ICOGNITIS_URL;?>"><?php echo trans_line('footer_desarrollador');?></a></div>
                 </div>
                 <br class="visible-xs visible-sm"/>
                 <div class="col_half col_last tright">
@@ -34,7 +34,7 @@
                     <br/>
                     <a href="<?php echo base_url_lang();?>contacto"><i class="icon-email3" style="margin-right: 5px;"></i>&nbsp;<?php echo MAIL_VENTAS;?></a>
                     <br/><br/>
-                    <span style="margin-right:10px; color:#AAA">Change the language:</span><?php echo footer_lang_sel();?>
+                    <span style="margin-right:10px; color:#AAA"><?php echo trans_line('footer_cambiar');?></span><?php echo footer_lang_sel();?>
                 </div>
 
             </div>

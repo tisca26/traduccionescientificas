@@ -31,6 +31,7 @@ class Contacto extends CI_Controller
             $receptor_telefono = $this->input->post('telefono');
             $receptor_mensaje = $this->input->post('mensaje');
             if($this->_enviar_correo_a_ventas($receptor_nombre, $receptor_mail, $receptor_telefono, $receptor_mensaje)){
+                $this->_enviar_correo_a_cliente($receptor_nombre, $receptor_mail);
                 set_bootstrap_alert(trans_line('prueba_exito'), BOOTSTRAP_ALERT_SUCCESS);
                 $this->index();
             }else{
@@ -40,7 +41,7 @@ class Contacto extends CI_Controller
         }
     }
 
-    private function _enviar_correo_a_ventas($receptor_nombre = '', $receptor_mail = '', $receptor_telefono = '', $receptor_evento = '', $receptor_mensaje = '',$receptor_fecha='', $receptor_hora='')
+    private function _enviar_correo_a_ventas($receptor_nombre = '', $receptor_mail = '', $receptor_telefono = '', $receptor_mensaje = '')
     {
         $mail = new PHPMailer();
         $mail->SMTPOptions = array(
@@ -65,7 +66,7 @@ class Contacto extends CI_Controller
         $mail->ContentType = 'text/html; charset=utf-8\r\n';
         $mail->isHTML(true);
         $mail->setFrom('contacto@traduccionescientificas.com.mx', 'Solicitud - '.NOMBRETC);
-        $mail->Subject = "Solicitud de Traducción";
+        $mail->Subject = "Nuevo cliente";
         $mail->addAddress('contacto@traduccionescientificas.com.mx', NOMBRE.' - '.NOMBRETC);
 
         $data['receptor_nombre'] = $receptor_nombre;
@@ -80,7 +81,49 @@ class Contacto extends CI_Controller
             $mail->clearReplyTos();
             return TRUE;
         } else {
-            log_message('ERROR', '--------- Error envio correo ---------' . $mail->ErrorInfo);
+            log_message('ERROR', '--------- Error envio correo ventas---------' . $mail->ErrorInfo);
+            return FALSE;
+        }
+    }
+    private function _enviar_correo_a_cliente($receptor_nombre = '', $receptor_mail = '')
+    {
+        $mail = new PHPMailer();
+        $mail->SMTPOptions = array(
+            'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            )
+        );
+        $mail->isSMTP();
+        $mail->Host = 'kin.hosting-mexico.net';
+        $mail->SMTPAuth = true;
+        $mail->SMTPDebug = 0;
+        $mail->SMTPKeepAlive = true; // SMTP connection will not close after each email sent, reduces SMTP overhead
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = 'ssl';
+        $mail->Username = 'contacto@traduccionescientificas.com.mx'; // SMTP username
+        $mail->Password = 'Contacto123!';
+        $mail->Port = 465;
+        $mail->AltBody = 'Para mostrar el mensaje correctamente, por favor, use un visor de email compatible con HTML, ¡Gracias!';
+        $mail->CharSet = 'UTF-8';
+        $mail->ContentType = 'text/html; charset=utf-8\r\n';
+        $mail->isHTML(true);
+        $mail->setFrom('contacto@traduccionescientificas.com.mx', NOMBRE.' - '.NOMBRETC);
+        $mail->addReplyTo('contacto@traduccionescientificas.com.mx', NOMBRE.' - '.NOMBRETC);
+        $mail->Subject = trans_line('contacto_asunto');
+        $mail->addAddress($receptor_mail, $receptor_nombre);
+
+        $data['receptor_nombre'] = $receptor_nombre;
+        $cuerpo_mensaje = $this->load->view('contacto/contacto_email_cliente', $data, TRUE);
+
+        $mail->msgHTML($cuerpo_mensaje);
+        if ($mail->send()) {
+            $mail->clearAllRecipients();
+            $mail->clearReplyTos();
+            return TRUE;
+        } else {
+            log_message('ERROR', '--------- Error envio correo cliente ---------' . $mail->ErrorInfo);
             return FALSE;
         }
     }

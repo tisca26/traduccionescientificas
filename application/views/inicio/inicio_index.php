@@ -23,8 +23,7 @@
     <link rel="stylesheet" href="<?php echo cdn_assets(); ?>assets/css/font-icons.css" type="text/css"/>
     <link rel="stylesheet" href="<?php echo cdn_assets(); ?>assets/css/animate.css" type="text/css"/>
     <link rel="stylesheet" href="<?php echo cdn_assets(); ?>assets/css/responsive.css" type="text/css"/>
-    <link rel="stylesheet" href="<?php echo cdn_assets(); ?>assets/css/custom.css" type="text/css"/>
-    <link rel="stylesheet" href="<?php echo cdn_assets(); ?>assets/css/colors.php" type="text/css"/>
+    <link rel="stylesheet" href="<?php echo cdn_assets(); ?>assets/css/colors.css" type="text/css"/>
 
     <!-- Document Title
     ============================================= -->
@@ -47,7 +46,7 @@
 
             <div class="swiper-container swiper-parent">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide dark" style="background-image: url('<?php echo cdn_assets();?>assets/images/slider/fondo-azul.jpg');">
+                    <div class="swiper-slide dark" style="background-image: url('<?php echo cdn_assets();?>assets/images/slider/fondo6.jpg');">
                         <div class="container clearfix">
                             <div class="slider-caption col_half">
                                 <h2 data-caption-animate="fadeInUp"><?php echo trans_line('inicio_slider_1_titulo');?></h2>
@@ -63,12 +62,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide dark" style="background-image: url('<?php echo cdn_assets();?>assets/images/slider/fondo-azul-2.jpg');">
+                    <div class="swiper-slide dark" style="background-image: url('<?php echo cdn_assets();?>assets/images/slider/fondo10.jpg');">
                         <div class="container clearfix">
-                            <div class="slider-caption slider-caption-center">
+                            <div class="slider-caption">
                                 <h2 data-caption-animate="fadeInUp"><a href="<?php echo base_url_lang();?>prueba" style="color: #FFF"><?php echo trans_line('inicio_slider_2_titulo');?></a></h2>
                                 <p data-caption-animate="fadeInDown" data-caption-delay="200"><?php echo trans_line('inicio_slider_2_sub');?></p>
                                 <a data-caption-animate="bounceIn" data-caption-delay="400" href="<?php echo base_url_lang();?>prueba" class="button button-small button-rounded button-border button-light"><?php echo trans_line('inicio_slider_2_boton');?></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background-image: url('<?php echo cdn_assets();?>assets/images/slider/fondo9.jpg');">
+                        <div class="container clearfix">
+                            <div class="slider-caption">
+                                <h2 data-caption-animate="fadeInLeft" style="text-shadow: 0 0 10px #FFF;"><?php echo trans_line('inicio_slider_3_titulo');?></h2>
+                                <p data-caption-animate="fadeInLeft" data-caption-delay="200"><?php echo trans_line('inicio_slider_3_sub');?></p>
+                                <a data-caption-animate="bounceIn" data-caption-delay="400" href="<?php echo base_url_lang();?>prueba" class="button button-small button-rounded button-border button-dark"><?php echo trans_line('inicio_slider_3_boton');?></a>
                             </div>
                         </div>
                     </div>

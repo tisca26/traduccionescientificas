@@ -3,7 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['language'] = 'es-MX';
 $lang['title_tag'] = NOMBRE.' - Inicio';
-$lang['metatag_desc'] = '';
+$lang['metatag_desc'] = 'Somos un equipo de traductores enfocados a la traducción, edición y '.
+                        'revisión de documentos especializados en las ciencias médicas, farmacéuticas '.
+                        'y de investigación.';
 $lang['metatag_keywords'] = '';
 
 $lang['inicio_slider_1_titulo'] = 'Traducciones Científicas';
@@ -13,6 +15,10 @@ $lang['inicio_slider_1_sub'] = 'Somos un equipo de traductores enfocados a la tr
 $lang['inicio_slider_2_titulo'] = 'Solicita una traducción gratuita';
 $lang['inicio_slider_2_sub'] = 'Solicitua una prueba de traducción sin costo';
 $lang['inicio_slider_2_boton'] = 'Solicitar ahora';
+
+$lang['inicio_slider_3_titulo'] = 'Personal altamente calificado';
+$lang['inicio_slider_3_sub'] = 'Nuestro equipo cuenta con una amplia experiencia en los campos de <strong>Investigación Científica, Investigación Clínica, Desarrollo Médico y Farmacéutico</strong>';
+$lang['inicio_slider_3_boton'] = 'Contactanos';
 
 $lang['inicio_mision_title_1'] = '¿Quiénes Somos?';
 $lang['inicio_mision_sub_1'] = 'Miembros de ATA <small>American Translators Association</small>';
