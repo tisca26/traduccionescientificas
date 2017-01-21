@@ -20,7 +20,7 @@ $lang['contacto_form_enviar'] = 'Enviar';
 $lang['contacto_form_enviando'] = 'Enviando...';
 
 $lang['contacto_exito'] = 'Su mensaje fue enviado exitosamente, pronto nos pondremos en contacto con usted.<br/>'.
-    'Revise su bandeja de Correo no Deseado en caso de no recibir una respuesta.';
+    'Revise su bandeja de <strong>Correo no Deseado</strong> en caso de no recibir una respuesta.';
 $lang['contacto_error'] = 'Ha ocurrido un <strong>error</strong> al enviar su mensaje, intentelo de nuevo.'.
     '<br/>Si el problema persiste <strong>pongase en contacto con nosotros</strong>'.
     ', envie su mensaje directamente a <strong>'.MAIL_VENTAS.'</strong>';

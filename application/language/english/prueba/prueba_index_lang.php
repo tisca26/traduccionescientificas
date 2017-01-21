@@ -18,8 +18,8 @@ $lang['prueba_form_idioma'] = 'Inglés';
 $lang['prueba_form_enviar'] = 'Send';
 $lang['prueba_form_enviando'] = 'Sending...';
 
-$lang['prueba_exito'] = 'Your request was succesfully sent, you will receive an e-mail with the translation as soon as posible.'.
-                        'Please check your Junk Mail if you cannot find your translated text.';
+$lang['prueba_exito'] = 'Your request was succesfully sent, you will receive an e-mail with the translation as soon as posible.<br/>'.
+                        'Please check your <strong>Junk Mail</strong> if you cannot find your translated text.';
 $lang['prueba_realizada'] = 'You have already requested a trial, we will send you the translated text soon.'.
                             '<br/><strong>Please check your Junk Mail if you cannot find your translated text.</strong>';
 $lang['prueba_error'] = 'An <strong>error</strong> has ocurred, please try again.'.

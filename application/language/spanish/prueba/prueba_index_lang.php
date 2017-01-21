@@ -19,8 +19,8 @@ $lang['prueba_form_idioma'] = 'Español';
 $lang['prueba_form_enviar'] = 'Enviar';
 $lang['prueba_form_enviando'] = 'Enviando...';
 
-$lang['prueba_exito'] = 'Su solicitud fue enviada exitosamente, la traducción le será enviada a su correo electrónico lo más pronto posible.'.
-                        'Revise su bandeja de Correo no Deseado en caso de no recibir una respuesta.';
+$lang['prueba_exito'] = 'Su solicitud fue enviada exitosamente, la traducción le será enviada a su correo electrónico lo más pronto posible.<br/>'.
+                        'Revise su bandeja de <strong>Correo no Deseado</strong> en caso de no recibir una respuesta.';
 $lang['prueba_realizada'] = 'Usted ha solicitado una prueba de traducción recientemente, pronto recibirá una respuesta.'.
                             '<br/><strong>Si aún no ha recibido su traducción intente revisando su bandeja de Correo no Deseado.</strong>';
 $lang['prueba_error'] = 'Ha ocurrido un <strong>error</strong> al enviar su solicitud, intente de nuevo.'.
