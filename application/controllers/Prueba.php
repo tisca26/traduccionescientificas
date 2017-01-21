@@ -61,15 +61,15 @@ class Prueba extends CI_Controller
             )
         );
         $mail->isSMTP();
-        $mail->Host = 'kin.hosting-mexico.net';
+        $mail->Host = 'mail.traduccionescientificas.com.mx';
         $mail->SMTPAuth = true;
         $mail->SMTPDebug = 0;
         $mail->SMTPKeepAlive = true; // SMTP connection will not close after each email sent, reduces SMTP overhead
         $mail->SMTPAuth = true;
-        $mail->SMTPSecure = 'ssl';
+        $mail->SMTPSecure = '';
         $mail->Username = 'contacto@traduccionescientificas.com.mx'; // SMTP username
-        $mail->Password = 'Contacto123!';
-        $mail->Port = 465;
+        $mail->Password = 'Hola123!';
+        $mail->Port = 26;
         $mail->AltBody = 'Para mostrar el mensaje correctamente, por favor, use un visor de email compatible con HTML, ¡Gracias!';
         $mail->CharSet = 'UTF-8';
         $mail->ContentType = 'text/html; charset=utf-8\r\n';
