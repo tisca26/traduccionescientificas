@@ -61,7 +61,7 @@ class Contacto extends CI_Controller
         $mail->SMTPAuth = true;
         $mail->SMTPSecure = 'ssl';
         $mail->Username = 'contacto@traduccionescientificas.com.mx'; // SMTP username
-        $mail->Password = 'Contacto123!';
+        $mail->Password = 'Hola123!';
         $mail->Port = 465;
         $mail->AltBody = 'Para mostrar el mensaje correctamente, por favor, use un visor de email compatible con HTML, ¡Gracias!';
         $mail->CharSet = 'UTF-8';
@@ -106,7 +106,7 @@ class Contacto extends CI_Controller
         $mail->SMTPAuth = true;
         $mail->SMTPSecure = 'ssl';
         $mail->Username = 'contacto@traduccionescientificas.com.mx'; // SMTP username
-        $mail->Password = 'Contacto123!';
+        $mail->Password = 'Hola123!';
         $mail->Port = 465;
         $mail->AltBody = 'Para mostrar el mensaje correctamente, por favor, use un visor de email compatible con HTML, ¡Gracias!';
         $mail->CharSet = 'UTF-8';
