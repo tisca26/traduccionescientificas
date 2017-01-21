@@ -74,7 +74,7 @@ class Prueba extends CI_Controller
         $mail->CharSet = 'UTF-8';
         $mail->ContentType = 'text/html; charset=utf-8\r\n';
         $mail->isHTML(true);
-        $mail->setFrom('contacto@traduccionescientificas.com.mx', 'Solicitud - '.NOMBRETC);
+        $mail->setFrom('contacto@traduccionescientificas.com.mx', 'Traducción - '.NOMBRETC);
         $mail->Subject = "Solicitud de Traducción";
         $mail->addAddress('contacto@traduccionescientificas.com.mx', NOMBRE.' - '.NOMBRETC);
 

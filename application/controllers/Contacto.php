@@ -67,7 +67,7 @@ class Contacto extends CI_Controller
         $mail->CharSet = 'UTF-8';
         $mail->ContentType = 'text/html; charset=utf-8\r\n';
         $mail->isHTML(true);
-        $mail->setFrom('contacto@traduccionescientificas.com.mx', 'Solicitud - '.NOMBRETC);
+        $mail->setFrom('contacto@traduccionescientificas.com.mx', 'Contacto - '.NOMBRETC);
         $mail->Subject = "Nuevo cliente";
         $mail->addAddress('contacto@traduccionescientificas.com.mx', NOMBRE.' - '.NOMBRETC);
 
