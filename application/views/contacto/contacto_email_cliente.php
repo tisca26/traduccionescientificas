@@ -27,7 +27,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right" valign="top">
+                                <td align="center" valign="top" style="padding-left:20px;padding-right:20px;">
                                     <?php echo trans_line('contacto_pronto2');?>
                                 </td>
                             </tr>

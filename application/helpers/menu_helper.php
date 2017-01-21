@@ -7,15 +7,15 @@ if (!function_exists('top_lang_sel')) {
         $CI =& get_instance();
         $langs = $CI->config->item('lang_uri_abbr');
 
+        $result = '<li><a href="#">';
         $actual_lang = lang_segment();
-        $result = '<li data-toggle="dropdown" aria-expanded="false" style="padding: 0 10px; position:relative;">';
-        $result .= '<img src="' . cdn_assets() . 'assets/images/icons/flags/' . $actual_lang .'.png" alt="' . $langs[$actual_lang] . '"  style="height: 11px;">';
-        $result .= '&nbsp;&nbsp;<span class="caret"></span><ul class="dropdown-menu" role="menu" style="left:-90px;">';
+        $result .= '<img src="' . cdn_assets() . 'assets/images/icons/flags/' . $actual_lang .'.png" alt="' . $langs[$actual_lang] . '"></a>';
+        $result .= '<ul>';
 
         foreach ($langs as $key => $lang){
             if ($key != $actual_lang){
-                $result .= '<li><a class="text-uppercase" href="' . cambia_idioma($key) . '">';
-                $result .= '<img style="height: 11px;" src="' . cdn_assets() . 'assets/images/icons/flags/' . $key .'.png" alt="' . $langs[$key] . '"> ' . $key . '</a></li>';
+                $result .= '<li><a href="' . cambia_idioma($key) . '">';
+                $result .= '<img style="height:11px;" src="' . cdn_assets() . 'assets/images/icons/flags/' . $key .'.png" alt="' . $langs[$key] . '">' . $key . '</a></li>';
             }
         }
         $result .= '</ul></li>';

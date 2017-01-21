@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-<div id="top-bar" class="visible-xs">
+<div id="top-bar" class="visible-xs visible-sm">
 
     <div>
 
@@ -8,11 +8,11 @@
         ============================================= -->
         <div class="top-links">
             <ul class="sf-js-enabled clearfix" style="touch-action: pan-y;">
+                <?php echo top_lang_sel();?>
                 <li class="<?php echo $menu_root === '' ? 'current' : ''; ?>"><a href="<?php echo base_url_lang();?>"><?php echo trans_line('menu_inicio');?></a></li>
                 <li class="<?php echo $menu_root === 'servicios' ? 'current' : ''; ?>"><a href="<?php echo base_url_lang();?>servicios"><?php echo trans_line('menu_servicios');?></a></li>
                 <li class="<?php echo $menu_root === 'prueba' ? 'current' : ''; ?>"><a href="<?php echo base_url_lang();?>prueba"><?php echo trans_line('menu_prueba');?></a></li>
                 <li class="<?php echo $menu_root === 'contacto' ? 'current' : ''; ?>"><a href="<?php echo base_url_lang();?>contacto"><?php echo trans_line('menu_contacto');?></a></li>
-                <?php echo top_lang_sel();?>
             </ul>
         </div><!-- .top-links end -->
 
