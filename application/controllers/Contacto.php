@@ -19,6 +19,7 @@ class Contacto extends CI_Controller
 
     public function enviar_correo()
     {
+        $this->cargar_idioma->carga_lang('contacto/contacto_index');
         $this->form_validation->set_rules('nombre', 'Nombre', 'required|trim|min_length[3]');
         $this->form_validation->set_rules('correo', 'Correo Electrónico', 'required|trim|valid_email');
         $this->form_validation->set_rules('telefono', 'Teléfono', 'required|trim|min_length[7]|numeric');
@@ -43,6 +44,7 @@ class Contacto extends CI_Controller
 
     private function _enviar_correo_a_ventas($receptor_nombre = '', $receptor_mail = '', $receptor_telefono = '', $receptor_mensaje = '')
     {
+        $this->cargar_idioma->carga_lang('contacto/contacto_index');
         $mail = new PHPMailer();
         $mail->SMTPOptions = array(
             'ssl' => array(
@@ -87,6 +89,7 @@ class Contacto extends CI_Controller
     }
     private function _enviar_correo_a_cliente($receptor_nombre = '', $receptor_mail = '')
     {
+        $this->cargar_idioma->carga_lang('contacto/contacto_index');
         $mail = new PHPMailer();
         $mail->SMTPOptions = array(
             'ssl' => array(
