@@ -18,7 +18,7 @@ $lang['contacto_asunto'] = 'We have received your e-mail, we\'ll write you soon'
 $lang['contacto_form_enviar'] = 'Send';
 $lang['contacto_form_enviando'] = 'Sending...';
 
-$lang['contacto_exito'] = 'Your message was succesfully sent, we will send you an answer as soon as possible.'.
+$lang['contacto_exito'] = 'Your message was succesfully sent, we will send you an answer as soon as possible.<br/>'.
     'Please check your Junk Mail if you cannot find an answer.';
 $lang['contacto_realizada'] = 'You have already requested a trial, we will send you the translated text soon.'.
     '<br/><strong>Please check your Junk Mail if you cannot find your translated text.</strong>';
