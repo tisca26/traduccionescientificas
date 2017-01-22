@@ -33,7 +33,7 @@ class Contacto extends CI_Controller
             $receptor_mensaje = $this->input->post('mensaje');
             if($this->_enviar_correos($receptor_nombre, $receptor_mail, $receptor_telefono, $receptor_mensaje)){
                 set_bootstrap_alert(trans_line('contacto_exito'), BOOTSTRAP_ALERT_SUCCESS);
-                redirect(contacto);
+                redirect("contacto");
             }else{
                 set_bootstrap_alert(trans_line('contacto_error'), BOOTSTRAP_ALERT_DANGER);
                 $this->index();
