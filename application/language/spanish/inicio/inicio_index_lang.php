@@ -13,7 +13,7 @@ $lang['inicio_slider_1_sub'] = 'Somos un equipo de traductores enfocados a la tr
                                 'revisión de documentos especializados en las ciencias médicas, farmacéuticas '.
                                 'y de investigación.';
 $lang['inicio_slider_2_titulo'] = 'Solicita una traducción gratuita';
-$lang['inicio_slider_2_sub'] = 'Solicitua una prueba de traducción sin costo';
+$lang['inicio_slider_2_sub'] = 'Solicita una prueba de traducción sin costo';
 $lang['inicio_slider_2_boton'] = 'Solicitar ahora';
 
 $lang['inicio_slider_3_titulo'] = 'Personal altamente calificado';
