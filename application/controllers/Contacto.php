@@ -31,10 +31,9 @@ class Contacto extends CI_Controller
             $receptor_nombre = $this->input->post('nombre');
             $receptor_telefono = $this->input->post('telefono');
             $receptor_mensaje = $this->input->post('mensaje');
-            if($this->_enviar_correo_a_ventas($receptor_nombre, $receptor_mail, $receptor_telefono, $receptor_mensaje)){
-                $this->_enviar_correo_a_cliente($receptor_nombre, $receptor_mail);
+            if($this->_enviar_correos($receptor_nombre, $receptor_mail, $receptor_telefono, $receptor_mensaje)){
                 set_bootstrap_alert(trans_line('contacto_exito'), BOOTSTRAP_ALERT_SUCCESS);
-                $this->index();
+                redirect(contacto);
             }else{
                 set_bootstrap_alert(trans_line('contacto_error'), BOOTSTRAP_ALERT_DANGER);
                 $this->index();
@@ -42,7 +41,7 @@ class Contacto extends CI_Controller
         }
     }
 
-    private function _enviar_correo_a_ventas($receptor_nombre = '', $receptor_mail = '', $receptor_telefono = '', $receptor_mensaje = '')
+    private function _enviar_correos($receptor_nombre = '', $receptor_mail = '', $receptor_telefono = '', $receptor_mensaje = '')
     {
         $this->cargar_idioma->carga_lang('contacto/contacto_index');
         $mail = new PHPMailer();
@@ -79,54 +78,21 @@ class Contacto extends CI_Controller
 
         $mail->msgHTML($cuerpo_mensaje);
         if ($mail->send()) {
+            //Correo a cliente
+            $mail->setFrom('contacto@traduccionescientificas.com.mx', NOMBRE.' - '.NOMBRETC);
+            $mail->addReplyTo('contacto@traduccionescientificas.com.mx', NOMBRE.' - '.NOMBRETC);
+            $mail->Subject = trans_line('contacto_asunto');
+            $mail->clearAddresses();
+            $mail->addAddress($receptor_mail, $receptor_nombre);
+            $cuerpo_mensaje = $this->load->view('contacto/contacto_email_cliente', $data, TRUE);
+            $mail->msgHTML($cuerpo_mensaje);
+            $mail->send();
+
             $mail->clearAllRecipients();
             $mail->clearReplyTos();
             return TRUE;
         } else {
             log_message('ERROR', '--------- Error envio correo ventas---------' . $mail->ErrorInfo);
-            return FALSE;
-        }
-    }
-    private function _enviar_correo_a_cliente($receptor_nombre = '', $receptor_mail = '')
-    {
-        $this->cargar_idioma->carga_lang('contacto/contacto_index');
-        $mail = new PHPMailer();
-        $mail->SMTPOptions = array(
-            'ssl' => array(
-                'verify_peer' => false,
-                'verify_peer_name' => false,
-                'allow_self_signed' => true
-            )
-        );
-        $mail->isSMTP();
-        $mail->Host = 'mail.traduccionescientificas.com.mx';
-        $mail->SMTPAuth = true;
-        $mail->SMTPDebug = 0;
-        $mail->SMTPKeepAlive = true; // SMTP connection will not close after each email sent, reduces SMTP overhead
-        $mail->SMTPAuth = true;
-        $mail->SMTPSecure = '';
-        $mail->Username = 'contacto@traduccionescientificas.com.mx'; // SMTP username
-        $mail->Password = 'Hola123!';
-        $mail->Port = 26;
-        $mail->AltBody = 'Para mostrar el mensaje correctamente, por favor, use un visor de email compatible con HTML, ¡Gracias!';
-        $mail->CharSet = 'UTF-8';
-        $mail->ContentType = 'text/html; charset=utf-8\r\n';
-        $mail->isHTML(true);
-        $mail->setFrom('contacto@traduccionescientificas.com.mx', NOMBRE.' - '.NOMBRETC);
-        $mail->addReplyTo('contacto@traduccionescientificas.com.mx', NOMBRE.' - '.NOMBRETC);
-        $mail->Subject = trans_line('contacto_asunto');
-        $mail->addAddress($receptor_mail, $receptor_nombre);
-
-        $data['receptor_nombre'] = $receptor_nombre;
-        $cuerpo_mensaje = $this->load->view('contacto/contacto_email_cliente', $data, TRUE);
-
-        $mail->msgHTML($cuerpo_mensaje);
-        if ($mail->send()) {
-            $mail->clearAllRecipients();
-            $mail->clearReplyTos();
-            return TRUE;
-        } else {
-            log_message('ERROR', '--------- Error envio correo cliente ---------' . $mail->ErrorInfo);
             return FALSE;
         }
     }

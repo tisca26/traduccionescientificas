@@ -7,7 +7,7 @@
         <!-- Top Links
         ============================================= -->
         <div class="top-links">
-            <ul class="sf-js-enabled container clearfix" style="touch-action: pan-y;">
+            <ul class="sf-js-enabled clearfix" style="touch-action: pan-y; padding: 0 5px;">
                 <?php echo top_lang_sel();?>
                 <li class="<?php echo $menu_root === '' ? 'current' : ''; ?>"><a href="<?php echo base_url_lang();?>"><?php echo trans_line('menu_inicio');?></a></li>
                 <li class="<?php echo $menu_root === 'servicios' ? 'current' : ''; ?>"><a href="<?php echo base_url_lang();?>servicios"><?php echo trans_line('menu_servicios');?></a></li>
