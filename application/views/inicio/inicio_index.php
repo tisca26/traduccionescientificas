@@ -76,7 +76,7 @@
                             <div class="slider-caption">
                                 <h2 data-caption-animate="fadeInLeft" style="text-shadow: 0 0 10px #FFF;"><?php echo trans_line('inicio_slider_3_titulo');?></h2>
                                 <p data-caption-animate="fadeInLeft" data-caption-delay="200"><?php echo trans_line('inicio_slider_3_sub');?></p>
-                                <a data-caption-animate="bounceIn" data-caption-delay="400" href="<?php echo base_url_lang();?>prueba" class="button button-small button-rounded button-border button-dark"><?php echo trans_line('inicio_slider_3_boton');?></a>
+                                <a data-caption-animate="bounceIn" data-caption-delay="400" href="<?php echo base_url_lang();?>contacto" class="button button-small button-rounded button-border button-dark"><?php echo trans_line('inicio_slider_3_boton');?></a>
                             </div>
                         </div>
                     </div>
